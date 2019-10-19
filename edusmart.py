@@ -17,7 +17,10 @@ class edusmart:
         f.close()
     def annotateNotes(self,file):
         pass
-    def youtubeNotes(self,url):
+    def youtubeNotes(self,url,file_name='temp.txt'):
         src=YouTube(url)
         cap=src.captions.get_by_language_code('en')
         srt=cap.generate_srt_captions()
+        f=open(file_name,"w")
+        f.write(srt)
+        f.close()
